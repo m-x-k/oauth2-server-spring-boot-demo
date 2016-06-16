@@ -1,21 +1,30 @@
 package com.mxk.oauth.server.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
-@RestController
+@Controller
 public class MainController {
 
     @RequestMapping("/")
-    public String home() {
-        return "home";
+    public String test() {
+        return "test";
     }
 
-    @RequestMapping("/user")
-    public Principal isLoggedInUser(Principal principal) {
-        return principal;
+    @RequestMapping("/login")
+    public String login() {
+        return "click";
+    }
+
+    @RequestMapping({ "/user", "/me" })
+    public Map<String, String> user(Principal principal) {
+        Map<String, String> map = new LinkedHashMap<String, String>();
+        map.put("name", principal.getName());
+        return map;
     }
 
 }
