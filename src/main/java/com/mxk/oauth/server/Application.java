@@ -39,10 +39,10 @@ public class Application extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http.antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/login**", "/webjars/**").permitAll()
+                .antMatchers("/login**", "/webjars/**").permitAll()
                 .anyRequest().authenticated()
-                .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/"))
-                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().exceptionHandling().authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/login"))
+                .and().logout().logoutSuccessUrl("/logout").permitAll()
                 .and().addFilterBefore(ssoFilter(), BasicAuthenticationFilter.class);
         // @formatter:on
     }

@@ -8,23 +8,21 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Controller
-public class MainController {
+public class MyWebController {
 
     @RequestMapping("/")
-    public String test() {
-        return "test";
+    public String dashboard() {
+        return "dashboard";
     }
 
     @RequestMapping("/login")
     public String login() {
-        return "click";
+        return "login";
     }
 
-    @RequestMapping({ "/user", "/me" })
-    public Map<String, String> user(Principal principal) {
-        Map<String, String> map = new LinkedHashMap<String, String>();
-        map.put("name", principal.getName());
-        return map;
+    @RequestMapping("/logout")
+    public String logout() {
+        return "forward:login";
     }
 
 }
