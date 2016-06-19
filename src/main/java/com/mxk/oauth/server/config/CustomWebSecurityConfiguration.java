@@ -33,10 +33,10 @@ import java.util.List;
 @Order(6)
 public class CustomWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-//    @Bean(name="myAuthenticationManager")
-//    public AuthenticationManager authenticationManagerBean() throws Exception {
-//        return super.authenticationManagerBean();
-//    }
+    @Bean(name="myAuthenticationManager")
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
 
     @Autowired
     private OAuth2ClientContext oauth2ClientContext;
