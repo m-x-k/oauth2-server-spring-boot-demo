@@ -1,6 +1,8 @@
 package com.mxk.oauth.server.controllers;
 
 import com.mxk.oauth.server.model.Greeting;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,15 +22,6 @@ public class MyWebController {
     public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
         model.addAttribute("greeting", greeting);
         return "result";
-    }
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @RequestMapping("/logout")
-    public String logout() {
-        return "forward:login";
     }
 
 }
